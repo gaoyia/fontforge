@@ -1443,7 +1443,7 @@ static int AssignTTFBitGlyph(struct glyphinfo *gi,SplineFont *sf,EncMap *map,int
 	for ( j=0; bsizes[j]!=0 && ((bsizes[j]&0xffff)!=bdf->pixelsize || (bsizes[j]>>16)!=BDFDepth(bdf)); ++j );
 	if ( bsizes[j]==0 )
     continue;
-	for ( i=0; i<bdf->glyphcnt; ++i ) if ( !IsntBDFChar(bdf->glyphs[i]) )
+	for ( i=0; i<bdf->glyphcnt; ++i ) if ( !IsntBDFChar(bdf->glyphs[i]) && sf->glyphs[i]->ttf_glyph==-1 )
 	    sf->glyphs[i]->ttf_glyph = -2;
     }
 
